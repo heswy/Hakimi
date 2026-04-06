@@ -83,7 +83,7 @@
   font-weight: 600;
   letter-spacing: 0.02em;
   cursor: pointer;
-  box-shadow: none;
+  box-shadow: none !important;
   transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
 }
 
@@ -810,7 +810,7 @@
   border: 1px solid var(--background-modifier-border);
   background: var(--background-secondary);
   color: var(--text-normal);
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .kimi-secondary-action:hover:not(:disabled) {
@@ -905,7 +905,7 @@
   border: 1px solid var(--kimi-accent);
   background: var(--kimi-accent);
   color: var(--text-on-accent);
-  box-shadow: none;
+  box-shadow: none !important;
 }
 
 .kimi-stop-btn {
