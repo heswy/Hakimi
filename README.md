@@ -2,6 +2,8 @@
 
 **[English](#english) | [中文](#中文)**
 
+**Author:** 阿橙橙 ooorange ([@heswy](https://github.com/heswy)) · heswyc@163.com
+
 ---
 
 <a name="english"></a>
