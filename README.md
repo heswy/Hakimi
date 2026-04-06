@@ -393,7 +393,7 @@ kimi mcp add --transport http my-server https://example.com/mcp
 | `Cmd/Ctrl+P` → "让 Kimi 总结当前笔记" | 总结当前笔记 |
 | `Cmd/Ctrl+P` → "让 Kimi 分析当前笔记" | 询问当前笔记 |
 | `Cmd/Ctrl+P` → "新建 Kimi 对话" | 开始新的对话 |
-| 右键选中文本 → "询问 Kimi" | 上下文菜单操作 |
+| 右键选中文本 → "询问 Kimi" | 右键菜单操作 |
 
 ## ⚙️ 设置选项
 
