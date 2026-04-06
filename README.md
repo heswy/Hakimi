@@ -27,11 +27,20 @@ Native [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) integration for Obsidi
 
 ## 📸 Screenshot
 
-> **Note:** Screenshot will be added here. Upload `docs/screenshot.png` to display the interface.
-
-![Hakimi Screenshot](https://via.placeholder.com/800x500/f3f4f6/666?text=Hakimi+Screenshot+-+Upload+docs/screenshot.png)
+![Hakimi Screenshot](docs/screenshot-1.png)
 
 *Hakimi sidebar interface with Markdown rendering support*
+
+<details>
+<summary>More Screenshots</summary>
+
+![Markdown Styles](docs/screenshot-2.png)
+*Markdown rendering support - Callouts*
+
+![Mermaid Diagrams](docs/screenshot-3.png)
+*Markdown rendering support - Mermaid diagrams*
+
+</details>
 
 ## 📋 Requirements
 
@@ -256,11 +265,20 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📸 界面预览
 
-> **注意：** 截图将在此处显示。上传 `docs/screenshot.png` 以展示界面。
-
-![Hakimi 截图](https://via.placeholder.com/800x500/f3f4f6/666?text=Hakimi+截图+-+请上传+docs/screenshot.png)
+![Hakimi 截图](docs/screenshot-1.png)
 
 *Hakimi 侧边栏界面，支持 Markdown 渲染*
+
+<details>
+<summary>更多截图</summary>
+
+![标注样式](docs/screenshot-2.png)
+*Markdown 渲染支持 - 标注/Callout*
+
+![Mermaid 图表](docs/screenshot-3.png)
+*Markdown 渲染支持 - Mermaid 流程图*
+
+</details>
 
 ## 📋 系统要求
 
