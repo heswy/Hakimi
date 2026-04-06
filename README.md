@@ -4,15 +4,16 @@
 
 **Author:** 阿橙橙 ooorange ([@heswy](https://github.com/heswy)) · heswyc@163.com
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Obsidian](https://img.shields.io/badge/Obsidian-0.15%2B-purple.svg)](https://obsidian.md)
+[![Release](https://img.shields.io/badge/Release-v0.1.0-blue.svg)](https://github.com/heswy/Hakimi/releases)
+
 ---
 
 <a name="english"></a>
 ## English
 
 Native [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) integration for Obsidian. The plugin acts as an Obsidian host bridge for `kimi acp`: KimiCode remains the primary Agent runtime, while the plugin provides ACP transport, vault-aware context, and Obsidian MCP tools.
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Obsidian](https://img.shields.io/badge/Obsidian-0.15%2B-purple.svg)](https://obsidian.md)
 
 ## ✨ Features
 
