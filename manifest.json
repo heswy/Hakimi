@@ -1,9 +1,9 @@
 {
-  "id": "obsidian-kimi",
+  "id": "kimi-chat",
   "name": "Hakimi",
   "version": "0.1.0",
   "minAppVersion": "0.15.0",
-  "description": "KimiCode-native Agent integration for Obsidian with ACP, MCP tools, and vault-aware chat.",
+  "description": "Integrates KimiCode AI assistant with native vault-aware chat, MCP tools, and note management.",
   "author": "Hakimi Contributors",
   "authorUrl": "https://github.com/heswy",
   "isDesktopOnly": true
