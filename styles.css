@@ -1,0 +1,1916 @@
+/* ============================================
+   Obsidian Kimi Plugin Styles
+   ============================================ */
+
+.kimi-chat-view {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.kimi-chat-panel {
+  --kimi-accent: var(--interactive-accent);
+  --kimi-accent-rgb: var(--interactive-accent-rgb, 91, 141, 239);
+  --kimi-accent-soft: rgba(var(--kimi-accent-rgb), 0.14);
+  --kimi-accent-border: rgba(var(--kimi-accent-rgb), 0.28);
+  --kimi-success: #22c55e;
+  --kimi-warning: #f59e0b;
+  --kimi-danger: #ef4444;
+  --kimi-radius-sm: 10px;
+  --kimi-radius-md: 14px;
+  --kimi-radius-lg: 18px;
+  --kimi-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  background:
+    linear-gradient(180deg, var(--background-primary-alt, var(--background-primary)) 0%, var(--background-primary) 100%);
+  color: var(--text-normal);
+}
+
+.kimi-chat-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: transparent;
+  flex-shrink: 0;
+}
+
+.kimi-chat-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+.kimi-status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  background: var(--kimi-danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.12);
+  transition: transform 0.16s ease, box-shadow 0.16s ease;
+  flex-shrink: 0;
+}
+
+.kimi-status-indicator.connected {
+  background: var(--kimi-success);
+  box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.kimi-chat-actions {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 2px;
+}
+
+.kimi-icon-btn {
+  appearance: none;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-normal);
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
+}
+
+.kimi-icon-btn:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border-hover);
+  transform: translateY(-1px);
+}
+
+.kimi-icon-btn.is-active {
+  border-color: var(--kimi-accent-border);
+  background: var(--kimi-accent-soft);
+  color: var(--interactive-accent);
+}
+
+.kimi-icon-btn:active {
+  transform: translateY(0);
+}
+
+.kimi-icon-btn:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.kimi-error-banner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(245, 158, 11, 0.4);
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--text-normal);
+  flex-shrink: 0;
+}
+
+.kimi-error-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 12px;
+  line-height: 1.55;
+}
+
+.kimi-error-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #b45309;
+}
+
+.kimi-error-action {
+  appearance: none;
+  border: 1px solid rgba(180, 83, 9, 0.24);
+  background: rgba(255, 255, 255, 0.7);
+  color: #92400e;
+  padding: 7px 12px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background-color 0.16s ease;
+}
+
+.kimi-error-action:hover {
+  background: rgba(255, 255, 255, 0.92);
+  border-color: rgba(180, 83, 9, 0.36);
+}
+
+.kimi-message-list {
+  flex: 1;
+  overflow-y: auto;
+  padding: 18px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.kimi-message-list.kimi-empty {
+  align-items: stretch;
+  justify-content: flex-start;
+  padding-top: 40px;
+}
+
+.kimi-welcome {
+  width: min(100%, 420px);
+  margin: 0 auto;
+  padding: 24px;
+  border-radius: 24px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  box-shadow: var(--kimi-shadow);
+  text-align: left;
+}
+
+.kimi-welcome-eyebrow {
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--interactive-accent);
+}
+
+.kimi-welcome-text {
+  margin-bottom: 8px;
+  font-size: 20px;
+  line-height: 1.35;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.kimi-welcome-hint {
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.kimi-message {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: kimi-fade-in 0.18s ease;
+}
+
+@keyframes kimi-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.kimi-message-user {
+  align-items: flex-end;
+}
+
+.kimi-message-assistant {
+  align-items: flex-start;
+}
+
+.kimi-message-tool {
+  align-items: flex-start;
+}
+
+.kimi-message-system {
+  align-items: center;
+}
+
+.kimi-message-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 4px;
+  color: var(--text-muted);
+}
+
+.kimi-message-role {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  padding: 0 8px;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.kimi-message-time {
+  font-size: 11px;
+  opacity: 0.8;
+}
+
+.kimi-message-tool .kimi-message-role {
+  background: color-mix(in srgb, var(--interactive-accent) 8%, var(--background-secondary));
+  border-color: color-mix(in srgb, var(--interactive-accent) 18%, var(--background-modifier-border));
+  color: var(--interactive-accent);
+}
+
+.kimi-message-attachments {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.kimi-attachment-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 28px;
+  padding: 0 10px;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.kimi-attachment-file {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.kimi-attachment-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--interactive-accent);
+}
+
+.kimi-message-content {
+  max-width: min(92%, 560px);
+  padding: 12px 16px;
+  border-radius: var(--kimi-radius-lg);
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  box-shadow: var(--kimi-shadow);
+  font-size: 14px;
+  line-height: 1.6;
+  overflow: hidden;
+  overflow-wrap: break-word;
+}
+
+.kimi-message-user .kimi-message-content {
+  --text-normal: #f8fafc;
+  --text-muted: rgba(248, 250, 252, 0.82);
+  --text-faint: rgba(248, 250, 252, 0.62);
+  --link-color: #ffffff;
+  --text-accent: #ffffff;
+  --code-normal: #f8fafc;
+  --blockquote-color: rgba(248, 250, 252, 0.92);
+  --hr-color: rgba(248, 250, 252, 0.18);
+  background:
+    linear-gradient(
+      180deg,
+      color-mix(in srgb, var(--interactive-accent) 30%, #475569) 0%,
+      color-mix(in srgb, var(--interactive-accent) 22%, #334155) 100%
+    );
+  border-color: color-mix(in srgb, var(--interactive-accent) 20%, #334155);
+  color: #f8fafc;
+  box-shadow: none;
+}
+
+.kimi-message-user .kimi-message-content.markdown-rendered,
+.kimi-message-user .kimi-message-content.markdown-rendered .kimi-markdown-render-root,
+.kimi-message-user .kimi-message-content.markdown-rendered :is(p, li, strong, em, code, span, h1, h2, h3, h4, h5, h6, blockquote) {
+  color: #f8fafc;
+}
+
+.kimi-message-user .kimi-message-content .kimi-wikilink {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.kimi-message-system .kimi-message-content {
+  max-width: min(100%, 600px);
+  background: var(--background-secondary-alt, var(--background-secondary));
+  color: var(--text-muted);
+}
+
+.kimi-message-welcome .kimi-message-content {
+  padding: 18px 20px;
+  border-radius: 22px;
+  background: linear-gradient(180deg, rgba(var(--kimi-accent-rgb), 0.07) 0%, var(--background-secondary) 100%);
+  border-color: rgba(var(--kimi-accent-rgb), 0.18);
+}
+
+.kimi-message-content.markdown-rendered,
+.kimi-thinking-content.markdown-rendered {
+  min-width: 0;
+  color: inherit;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.kimi-message-content.markdown-rendered .kimi-markdown-render-root,
+.kimi-thinking-content.markdown-rendered .kimi-markdown-render-root {
+  min-width: 0;
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.kimi-message-content.markdown-rendered :is(
+    p,
+    ul,
+    ol,
+    li,
+    blockquote,
+    pre,
+    code,
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td,
+    hr,
+    a,
+    span,
+    strong,
+    em,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+  ),
+.kimi-thinking-content.markdown-rendered :is(
+    p,
+    ul,
+    ol,
+    li,
+    blockquote,
+    pre,
+    code,
+    table,
+    thead,
+    tbody,
+    tr,
+    th,
+    td,
+    hr,
+    a,
+    span,
+    strong,
+    em,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6
+  ) {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+.kimi-message-content.markdown-rendered .kimi-markdown-render-root > :first-child,
+.kimi-thinking-content.markdown-rendered .kimi-markdown-render-root > :first-child {
+  margin-top: 0;
+}
+
+.kimi-message-content.markdown-rendered .kimi-markdown-render-root > :last-child,
+.kimi-thinking-content.markdown-rendered .kimi-markdown-render-root > :last-child {
+  margin-bottom: 0;
+}
+
+.kimi-message-content.markdown-rendered :is(p, ul, ol, blockquote, pre, table, hr, .callout),
+.kimi-thinking-content.markdown-rendered :is(p, ul, ol, blockquote, pre, table, hr, .callout) {
+  margin-top: 0;
+  margin-bottom: 14px;
+}
+
+.kimi-message-content.markdown-rendered :is(h1, h2, h3, h4, h5, h6),
+.kimi-thinking-content.markdown-rendered :is(h1, h2, h3, h4, h5, h6) {
+  margin-top: 0;
+  margin-bottom: 12px;
+  color: inherit;
+}
+
+.kimi-message-content.markdown-rendered pre,
+.kimi-thinking-content.markdown-rendered pre {
+  overflow: auto;
+  border-radius: 12px;
+}
+
+.kimi-message-content.markdown-rendered code,
+.kimi-thinking-content.markdown-rendered code {
+  word-break: break-word;
+}
+
+.kimi-message-content.markdown-rendered table,
+.kimi-thinking-content.markdown-rendered table {
+  display: block;
+  width: max-content;
+  min-width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-collapse: collapse;
+}
+
+.kimi-message-content.markdown-rendered th,
+.kimi-message-content.markdown-rendered td,
+.kimi-thinking-content.markdown-rendered th,
+.kimi-thinking-content.markdown-rendered td {
+  padding: 6px 10px;
+}
+
+.kimi-message-content.markdown-rendered hr,
+.kimi-thinking-content.markdown-rendered hr {
+  margin: 18px 0;
+}
+
+.kimi-message-content.markdown-rendered :is(img, svg, canvas),
+.kimi-thinking-content.markdown-rendered :is(img, svg, canvas) {
+  display: block;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.kimi-message-content.markdown-rendered .mermaid,
+.kimi-thinking-content.markdown-rendered .mermaid {
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.kimi-message-content.markdown-rendered .mermaid svg,
+.kimi-thinking-content.markdown-rendered .mermaid svg {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.kimi-message-content.markdown-rendered a,
+.kimi-thinking-content.markdown-rendered a {
+  overflow-wrap: anywhere;
+}
+
+.kimi-message-user .kimi-message-content.markdown-rendered :is(a, .internal-link) {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.kimi-thinking-block {
+  width: min(92%, 560px);
+  border-radius: var(--kimi-radius-md);
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary-alt, var(--background-secondary));
+  overflow: hidden;
+}
+
+.kimi-thinking-header {
+  appearance: none;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.16s ease;
+}
+
+.kimi-thinking-header:hover {
+  background: var(--background-modifier-hover);
+}
+
+.kimi-thinking-arrow {
+  display: inline-flex;
+  width: 12px;
+  justify-content: center;
+  font-size: 10px;
+  transition: transform 0.16s ease;
+}
+
+.kimi-thinking-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.kimi-thinking-label {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.kimi-thinking-hint {
+  margin-left: auto;
+  font-size: 12px;
+}
+
+.kimi-thinking-content {
+  padding: 14px 16px;
+  border-top: 1px solid var(--background-modifier-border);
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  background: rgba(var(--kimi-accent-rgb), 0.03);
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.kimi-message-thinking-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-muted);
+}
+
+.kimi-thinking-status {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.kimi-thinking-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: currentColor;
+  opacity: 0.45;
+  animation: kimi-thinking-bounce 1.2s ease-in-out infinite both;
+}
+
+.kimi-thinking-dot:nth-last-child(3) {
+  animation-delay: -0.24s;
+}
+
+.kimi-thinking-dot:nth-last-child(2) {
+  animation-delay: -0.12s;
+}
+
+@keyframes kimi-thinking-bounce {
+  0%,
+  80%,
+  100% {
+    transform: scale(0.6);
+    opacity: 0.35;
+  }
+  40% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.kimi-input-box {
+  padding: 14px 16px 16px;
+  border-top: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  flex-shrink: 0;
+}
+
+.kimi-composer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 20px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  box-shadow: var(--kimi-shadow);
+}
+
+.kimi-composer.kimi-drop-active {
+  border-color: color-mix(in srgb, var(--interactive-accent) 45%, var(--background-modifier-border));
+  background: color-mix(in srgb, var(--interactive-accent) 6%, var(--background-primary));
+}
+
+.kimi-input-surface {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  padding: 4px 6px;
+  overflow: hidden;
+}
+
+.kimi-input-surface:focus-within {
+  outline: none;
+}
+
+.kimi-attached-notes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kimi-input-token-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.kimi-attachment-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  max-width: min(100%, 240px);
+  min-height: 34px;
+  padding: 0 6px 0 12px;
+  border-radius: 999px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary-alt, var(--background-secondary));
+  font-size: 12px;
+  color: var(--text-normal);
+}
+
+.kimi-attachment-chip-inline {
+  max-width: min(100%, 280px);
+  background: color-mix(in srgb, var(--background-secondary) 82%, var(--background-primary));
+}
+
+.kimi-attachment-chip-name {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  line-height: 1.3;
+}
+
+.kimi-remove-attachment {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.16s ease, background-color 0.16s ease, color 0.16s ease;
+}
+
+.kimi-remove-attachment:hover {
+  color: var(--text-normal);
+  border-color: var(--background-modifier-border);
+  background: var(--background-primary);
+}
+
+.kimi-input-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.kimi-input-tools {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+  flex: 1 1 260px;
+}
+
+.kimi-composer-hint {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+
+.kimi-composer textarea {
+  appearance: none;
+  display: block;
+  width: 100%;
+  resize: none;
+  min-height: 28px;
+  margin: 0;
+  padding: 2px 0;
+  border: 0 !important;
+  border-radius: 0;
+  background: transparent;
+  color: var(--text-normal);
+  max-height: 220px;
+  box-shadow: none !important;
+  font-family: var(--font-interface);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.45;
+  outline: none;
+  scrollbar-gutter: stable;
+}
+
+.kimi-composer textarea:focus {
+  outline: none;
+  box-shadow: none !important;
+}
+
+.kimi-composer textarea::placeholder {
+  color: var(--text-muted);
+  opacity: 0.85;
+}
+
+.kimi-composer textarea:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.kimi-secondary-action,
+.kimi-send-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  padding: 9px 14px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
+}
+
+.kimi-secondary-action {
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+}
+
+.kimi-secondary-action:hover:not(:disabled) {
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border-hover);
+}
+
+.kimi-mention-trigger {
+  min-width: 38px;
+  padding-inline: 0;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.kimi-input-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.kimi-input-hint {
+  font-size: 12px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.kimi-mention-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: -2px;
+  padding: 8px;
+  border-radius: 16px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  max-height: 240px;
+  overflow-y: auto;
+}
+
+.kimi-mention-caption {
+  padding: 0 6px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.kimi-mention-option {
+  appearance: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--text-normal);
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.16s ease, border-color 0.16s ease;
+}
+
+.kimi-mention-option:hover,
+.kimi-mention-option.is-active {
+  background: color-mix(in srgb, var(--interactive-accent) 8%, var(--background-primary));
+  border-color: color-mix(in srgb, var(--interactive-accent) 34%, var(--background-modifier-border));
+}
+
+.kimi-mention-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.kimi-mention-path {
+  font-size: 11px;
+  line-height: 1.4;
+  color: var(--text-muted);
+  word-break: break-all;
+}
+
+.kimi-mention-empty {
+  padding: 10px 12px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.kimi-send-btn {
+  border: 1px solid var(--kimi-accent);
+  background: var(--kimi-accent);
+  color: var(--text-on-accent);
+}
+
+.kimi-stop-btn {
+  border-color: rgba(180, 83, 9, 0.24);
+  background: rgba(245, 158, 11, 0.12);
+  color: #92400e;
+}
+
+.kimi-send-btn:hover:not(:disabled) {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+}
+
+.kimi-send-btn:disabled,
+.kimi-secondary-action:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.kimi-tool-call-item {
+  width: min(92%, 560px);
+  border-radius: 14px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  box-shadow: var(--kimi-shadow);
+  overflow: hidden;
+}
+
+.kimi-tool-call-item.is-running {
+  border-color: color-mix(in srgb, var(--interactive-accent) 28%, var(--background-modifier-border));
+  background: color-mix(in srgb, var(--interactive-accent) 4%, var(--background-primary));
+}
+
+.kimi-tool-call-item.is-interrupted {
+  border-color: rgba(180, 83, 9, 0.18);
+  background: rgba(245, 158, 11, 0.04);
+}
+
+.kimi-tool-call-toggle {
+  appearance: none;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  text-align: left;
+  cursor: pointer;
+}
+
+.kimi-tool-call-toggle:hover {
+  background: color-mix(in srgb, var(--background-modifier-hover) 88%, transparent);
+}
+
+.kimi-tool-call-body {
+  padding: 0 12px 12px;
+}
+
+.kimi-tool-call-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.kimi-tool-call-heading {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.kimi-tool-call-arrow {
+  display: inline-flex;
+  width: 12px;
+  justify-content: center;
+  color: var(--text-muted);
+  transition: transform 0.16s ease;
+  flex-shrink: 0;
+}
+
+.kimi-tool-call-arrow.expanded {
+  transform: rotate(90deg);
+}
+
+.kimi-tool-call-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 22px;
+  padding: 0 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.kimi-tool-call-status-running {
+  background: var(--kimi-accent-soft);
+  color: var(--interactive-accent);
+}
+
+.kimi-tool-call-status-completed {
+  background: rgba(34, 197, 94, 0.12);
+  color: #15803d;
+}
+
+.kimi-tool-call-status-interrupted {
+  background: rgba(245, 158, 11, 0.12);
+  color: #b45309;
+}
+
+.kimi-tool-call-title {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-normal);
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.kimi-tool-call-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.kimi-tool-call-time {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.kimi-tool-call-toggle-hint {
+  display: inline-flex;
+  align-items: center;
+  min-height: 22px;
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.kimi-tool-call-name {
+  display: inline-block;
+  margin-top: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+}
+
+.kimi-tool-call-section {
+  margin-top: 10px;
+}
+
+.kimi-tool-call-section-label {
+  display: inline-flex;
+  margin-bottom: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.kimi-tool-call-section pre {
+  margin: 0;
+  padding: 10px 12px;
+  max-height: 120px;
+  overflow: auto;
+  border-radius: 12px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+  color: var(--text-muted);
+  font-size: 11px;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.kimi-skills-panel {
+  display: flex;
+  flex-direction: column;
+  max-height: 320px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  flex-shrink: 0;
+}
+
+.kimi-history-panel {
+  position: absolute;
+  top: 68px;
+  right: 16px;
+  z-index: 15;
+  display: flex;
+  flex-direction: column;
+  width: min(380px, calc(100% - 32px));
+  max-height: min(460px, calc(100% - 120px));
+  border: 1px solid color-mix(in srgb, var(--background-modifier-border) 92%, white 8%);
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--background-primary) 97%, white 3%);
+  box-shadow: 0 18px 34px rgba(15, 23, 42, 0.10);
+  backdrop-filter: blur(12px);
+  overflow: hidden;
+}
+
+.kimi-skills-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 18px 12px;
+  border-bottom: 1px solid var(--background-modifier-border);
+  background: var(--background-primary);
+}
+
+.kimi-skills-header h4 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+.kimi-history-header-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  min-width: 0;
+}
+
+.kimi-close-btn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  padding: 4px;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.kimi-close-btn:hover {
+  color: var(--text-normal);
+}
+
+.kimi-skills-list {
+  overflow-y: auto;
+  padding: 10px;
+}
+
+.kimi-history-list {
+  overflow-y: auto;
+  padding: 4px 0 8px;
+}
+
+.kimi-skills-empty {
+  padding: 8px 6px 16px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.kimi-history-empty {
+  padding: 18px 18px 20px;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.kimi-skills-empty p {
+  margin: 0 0 8px;
+}
+
+.kimi-history-empty p {
+  margin: 0 0 8px;
+}
+
+.kimi-skills-empty p:last-child {
+  margin-bottom: 0;
+}
+
+.kimi-history-empty p:last-child {
+  margin-bottom: 0;
+}
+
+.kimi-skills-empty code {
+  background: var(--background-primary);
+  border: 1px solid var(--background-modifier-border);
+  padding: 2px 6px;
+  border-radius: 8px;
+  font-size: 11px;
+}
+
+.kimi-history-item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 12px;
+  min-height: 52px;
+  padding: 0 18px;
+  border-radius: 0;
+  background: transparent;
+  transition: background-color 0.16s ease;
+}
+
+.kimi-history-item + .kimi-history-item {
+  border-top: 1px solid color-mix(in srgb, var(--background-modifier-border) 72%, transparent);
+}
+
+.kimi-history-item.is-active {
+  background: color-mix(in srgb, var(--interactive-accent) 8%, var(--background-primary));
+}
+
+.kimi-history-item-main {
+  appearance: none;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  padding: 12px 0;
+  margin: 0;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: inherit;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+.kimi-history-item-main:hover:not(:disabled) {
+  color: var(--text-normal);
+}
+
+.kimi-history-item:hover {
+  background: color-mix(in srgb, var(--background-modifier-hover) 72%, transparent);
+}
+
+.kimi-history-item-main:disabled,
+.kimi-history-delete:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kimi-history-item-title {
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-normal);
+}
+
+.kimi-history-item-meta {
+  font-size: 12px;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  white-space: nowrap;
+  transition: opacity 0.14s ease;
+}
+
+.kimi-history-delete {
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  appearance: none;
+  margin: 0;
+  border: none !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  color: var(--text-muted);
+  padding: 4px 0;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.14s ease, color 0.14s ease;
+}
+
+.kimi-history-item:hover .kimi-history-delete:not(:disabled),
+.kimi-history-item:focus-within .kimi-history-delete:not(:disabled) {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.kimi-history-item:hover .kimi-history-item-meta,
+.kimi-history-item:focus-within .kimi-history-item-meta {
+  opacity: 0;
+}
+
+.kimi-history-delete:hover:not(:disabled) {
+  color: #b91c1c;
+}
+
+.kimi-skill-item {
+  padding: 12px;
+  border-radius: var(--kimi-radius-md);
+  border: 1px solid transparent;
+  background: var(--background-primary);
+  cursor: pointer;
+  transition: border-color 0.16s ease, background-color 0.16s ease, transform 0.16s ease;
+}
+
+.kimi-skill-item + .kimi-skill-item {
+  margin-top: 8px;
+}
+
+.kimi-skill-item:hover {
+  background: var(--background-modifier-hover);
+  border-color: var(--background-modifier-border);
+  transform: translateY(-1px);
+}
+
+.kimi-skill-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.kimi-skill-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-normal);
+}
+
+.kimi-skill-desc {
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-muted);
+}
+
+.kimi-skills-loading {
+  padding: 24px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.kimi-status-section {
+  margin-bottom: 24px;
+}
+
+.kimi-status-title {
+  margin: 0 0 12px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.kimi-status-content {
+  line-height: 1.8;
+}
+
+.kimi-status-content div {
+  margin-bottom: 4px;
+}
+
+.kimi-status-ok {
+  color: var(--kimi-success);
+}
+
+.kimi-status-warn {
+  color: var(--kimi-warning);
+}
+
+.kimi-status-error {
+  color: var(--kimi-danger);
+}
+
+.kimi-status-info {
+  color: var(--text-muted);
+}
+
+.kimi-status-hint {
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.kimi-message-list::-webkit-scrollbar,
+.kimi-skills-list::-webkit-scrollbar,
+.kimi-history-list::-webkit-scrollbar,
+.kimi-tool-call-section pre::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+.kimi-message-list::-webkit-scrollbar-track,
+.kimi-skills-list::-webkit-scrollbar-track,
+.kimi-history-list::-webkit-scrollbar-track,
+.kimi-tool-call-section pre::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.kimi-message-list::-webkit-scrollbar-thumb,
+.kimi-skills-list::-webkit-scrollbar-thumb,
+.kimi-history-list::-webkit-scrollbar-thumb,
+.kimi-tool-call-section pre::-webkit-scrollbar-thumb {
+  background: var(--background-modifier-border);
+  border-radius: 999px;
+}
+
+.kimi-message-list::-webkit-scrollbar-thumb:hover,
+.kimi-skills-list::-webkit-scrollbar-thumb:hover,
+.kimi-history-list::-webkit-scrollbar-thumb:hover,
+.kimi-tool-call-section pre::-webkit-scrollbar-thumb:hover {
+  background: var(--background-modifier-border-hover);
+}
+
+.kimi-settings-page {
+  max-width: 800px;
+  padding: 0 4px 48px;
+}
+
+.kimi-settings-page > h2 {
+  margin: 12px 0 10px;
+  font-size: 28px;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.kimi-settings-lead {
+  max-width: 680px;
+  margin: 0 0 28px;
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.kimi-settings-section {
+  margin: 0 0 20px;
+  padding: 20px 24px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 16px;
+  background: var(--background-primary);
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.03);
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.kimi-settings-section:hover {
+  border-color: color-mix(in srgb, var(--background-modifier-border-hover) 60%, var(--background-modifier-border));
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.06);
+}
+
+.kimi-settings-section-header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid color-mix(in srgb, var(--background-modifier-border) 50%, transparent);
+}
+
+.kimi-settings-section-title {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-normal);
+}
+
+.kimi-settings-section-desc {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 600px;
+}
+
+.kimi-settings-section-body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* 状态徽章样式 */
+.kimi-settings-section-body .setting-item-control .mod-cta {
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  border-color: var(--interactive-accent);
+}
+
+.kimi-settings-section-body .setting-item-control .mod-warning {
+  background: color-mix(in srgb, var(--kimi-warning) 12%, transparent);
+  color: #92400e;
+  border-color: color-mix(in srgb, var(--kimi-warning) 30%, transparent);
+}
+
+.kimi-settings-section-body .setting-item-control .mod-warning:hover {
+  background: color-mix(in srgb, var(--kimi-warning) 18%, transparent);
+  border-color: color-mix(in srgb, var(--kimi-warning) 40%, transparent);
+}
+
+.kimi-settings-inline-note {
+  margin: 16px 0 0;
+  color: var(--text-muted);
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.kimi-settings-inline-note:empty {
+  display: none;
+}
+
+.kimi-settings-section-body .setting-item {
+  margin: 0 0 12px;
+  padding: 16px 20px;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: 12px;
+  background: var(--background-secondary);
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.kimi-settings-section-body .setting-item:hover {
+  border-color: color-mix(in srgb, var(--background-modifier-border-hover) 60%, var(--background-modifier-border));
+  box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);
+}
+
+.kimi-settings-section-body .setting-item:last-child {
+  margin-bottom: 0;
+}
+
+.kimi-settings-section-body .setting-item.is-disabled {
+  opacity: 0.48;
+}
+
+.kimi-settings-section-body .setting-item.is-disabled .setting-item-name,
+.kimi-settings-section-body .setting-item.is-disabled .setting-item-description {
+  color: var(--text-faint);
+}
+
+.kimi-settings-section-body .setting-item.is-disabled .checkbox-container {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.kimi-settings-section-body .setting-item-info {
+  padding-right: 20px;
+}
+
+.kimi-settings-section-body .setting-item-name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  margin-bottom: 4px;
+}
+
+.kimi-settings-section-body .setting-item-description {
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1.5;
+  max-width: 400px;
+}
+
+.kimi-settings-section-body .setting-item-control {
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 2px;
+}
+
+/* 优化开关样式 - 更小巧 */
+.kimi-settings-section-body .checkbox-container {
+  width: 40px;
+  height: 22px;
+  border-radius: 11px;
+  background-color: var(--background-modifier-border);
+  border: 1px solid var(--background-modifier-border);
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.kimi-settings-section-body .checkbox-container.is-enabled {
+  background-color: var(--interactive-accent);
+  border-color: var(--interactive-accent);
+}
+
+.kimi-settings-section-body .checkbox-container::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--background-primary);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kimi-settings-section-body .checkbox-container.is-enabled::after {
+  transform: translateX(18px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+.kimi-settings-section-body input[type='text'],
+.kimi-settings-section-body input[type='password'],
+.kimi-settings-section-body select {
+  min-width: 260px;
+  border-radius: 8px;
+  background: var(--background-secondary);
+  border: 1px solid var(--background-modifier-border);
+  padding: 6px 10px;
+  font-size: 13px;
+  transition: border-color 0.16s ease, box-shadow 0.16s ease;
+  height: 32px;
+  line-height: 1.4;
+}
+
+.kimi-settings-section-body input[type='text']:focus,
+.kimi-settings-section-body input[type='password']:focus,
+.kimi-settings-section-body select:focus {
+  border-color: var(--interactive-accent);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--interactive-accent) 12%, transparent);
+  outline: none;
+}
+
+/* Dropdown 样式优化 */
+.kimi-settings-section-body select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+  cursor: pointer;
+}
+
+.kimi-settings-section-body select:hover {
+  border-color: var(--background-modifier-border-hover);
+}
+
+.kimi-settings-section-body select option {
+  background: var(--background-primary);
+  color: var(--text-normal);
+  padding: 6px;
+}
+
+.kimi-settings-section-body button:not(.clickable-icon) {
+  border-radius: 8px;
+  padding: 6px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  transition: transform 0.1s ease, filter 0.16s ease;
+  height: 32px;
+}
+
+.kimi-settings-section-body button:not(.clickable-icon):hover:not(:disabled) {
+  transform: translateY(-1px);
+  filter: brightness(1.05);
+}
+
+.kimi-settings-section-body button:not(.clickable-icon):active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.kimi-settings-collapsible {
+  padding: 0 !important;
+  overflow: hidden;
+}
+
+.kimi-settings-collapsible-summary {
+  position: relative;
+  display: block;
+  padding: 20px 22px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.3;
+  list-style: none;
+  letter-spacing: -0.01em;
+  user-select: none;
+}
+
+.kimi-settings-collapsible-summary::-webkit-details-marker {
+  display: none;
+}
+
+.kimi-settings-collapsible-summary::after {
+  content: '+';
+  position: absolute;
+  top: 50%;
+  right: 22px;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+  font-size: 20px;
+  font-weight: 300;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, color 0.2s ease;
+}
+
+.kimi-settings-collapsible-summary:hover::after {
+  color: var(--text-normal);
+}
+
+.kimi-settings-collapsible[open] .kimi-settings-collapsible-summary::after {
+  content: '−';
+  font-weight: 300;
+}
+
+.kimi-settings-collapsible > .kimi-settings-section-body {
+  padding: 0 22px 20px;
+}
+
+.kimi-icon-btn:focus-visible,
+.kimi-error-action:focus-visible,
+.kimi-thinking-header:focus-visible,
+.kimi-secondary-action:focus-visible,
+.kimi-send-btn:focus-visible,
+.kimi-remove-attachment:focus-visible,
+.kimi-close-btn:focus-visible,
+.kimi-skill-item:focus-visible,
+.kimi-history-item-main:focus-visible,
+.kimi-history-delete:focus-visible {
+  outline: 2px solid var(--kimi-accent);
+  outline-offset: 2px;
+}
+
+@media (max-width: 520px) {
+  .kimi-chat-header,
+  .kimi-message-list,
+  .kimi-input-box,
+  .kimi-skills-header {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .kimi-chat-header {
+    gap: 10px;
+  }
+
+  .kimi-chat-title {
+    gap: 8px;
+    font-size: 13px;
+  }
+
+  .kimi-chat-actions {
+    gap: 6px;
+  }
+
+  .kimi-icon-btn {
+    padding: 6px 11px;
+    font-size: 11px;
+  }
+
+  .kimi-history-panel {
+    top: 60px;
+    right: 12px;
+    width: min(340px, calc(100% - 24px));
+    max-height: min(360px, calc(100% - 96px));
+  }
+
+  .kimi-history-item {
+    gap: 8px;
+    min-height: 44px;
+    padding: 0 14px;
+  }
+
+  .kimi-history-item-title {
+    font-size: 13px;
+  }
+
+  .kimi-history-item-meta,
+  .kimi-history-delete {
+    font-size: 11px;
+  }
+
+  .kimi-history-delete {
+    right: 14px;
+  }
+
+  .kimi-message-content,
+  .kimi-thinking-block {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .kimi-welcome {
+    width: 100%;
+  }
+
+  .kimi-input-surface {
+    padding: 4px 6px;
+  }
+
+  .kimi-composer textarea {
+    min-height: 24px;
+    font-size: 14px;
+    line-height: 1.4;
+  }
+
+  .kimi-input-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .kimi-input-tools {
+    flex: 0 1 auto;
+  }
+
+  .kimi-input-actions {
+    width: auto;
+    margin-left: auto;
+    justify-content: flex-end;
+  }
+
+  .kimi-composer-hint,
+  .kimi-input-hint {
+    display: none;
+  }
+
+  .kimi-secondary-action,
+  .kimi-send-btn {
+    justify-content: center;
+    padding: 8px 13px;
+  }
+
+  .kimi-settings-page {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .kimi-settings-page > h2 {
+    font-size: 24px;
+    margin: 8px 0 8px;
+  }
+
+  .kimi-settings-lead {
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+
+  .kimi-settings-section {
+    padding: 16px 18px;
+    border-radius: 16px;
+    margin-bottom: 12px;
+  }
+
+  .kimi-settings-section-header {
+    margin-bottom: 10px;
+  }
+
+  .kimi-settings-section-title {
+    font-size: 15px;
+  }
+
+  .kimi-settings-overview-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+
+  .kimi-settings-overview-item {
+    padding: 14px;
+    min-height: 72px;
+  }
+
+  .kimi-settings-section-body .setting-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 16px;
+  }
+
+  .kimi-settings-section-body .setting-item-info {
+    padding-right: 0;
+  }
+
+  .kimi-settings-section-body .setting-item-control {
+    align-self: flex-start;
+  }
+
+  .kimi-settings-section-body input[type='text'],
+  .kimi-settings-section-body input[type='password'],
+  .kimi-settings-section-body select {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .kimi-settings-collapsible-summary,
+  .kimi-settings-collapsible > .kimi-settings-section-body {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .kimi-settings-collapsible-summary {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+}
