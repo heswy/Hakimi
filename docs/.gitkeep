@@ -1,0 +1,12 @@
+# Screenshots Directory
+
+Upload your Hakimi screenshots here.
+
+Naming convention:
+- screenshot.png - Main interface screenshot for README
+- screenshot-zh.png - Chinese interface screenshot (optional)
+
+Recommended specs:
+- Size: 1200x800px or 1600x1000px
+- Format: PNG
+- Content: Show Hakimi sidebar with a conversation, demonstrating Markdown rendering

@@ -27,7 +27,9 @@ Native [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) integration for Obsidi
 
 ## 📸 Screenshot
 
-![Hakimi Screenshot](https://github.com/heswy/Hakimi/raw/main/docs/screenshot.png)
+> **Note:** Screenshot will be added here. Upload `docs/screenshot.png` to display the interface.
+
+![Hakimi Screenshot](https://via.placeholder.com/800x500/f3f4f6/666?text=Hakimi+Screenshot+-+Upload+docs/screenshot.png)
 
 *Hakimi sidebar interface with Markdown rendering support*
 
@@ -254,7 +256,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📸 界面预览
 
-![Hakimi 截图](https://github.com/heswy/Hakimi/raw/main/docs/screenshot.png)
+> **注意：** 截图将在此处显示。上传 `docs/screenshot.png` 以展示界面。
+
+![Hakimi 截图](https://via.placeholder.com/800x500/f3f4f6/666?text=Hakimi+截图+-+请上传+docs/screenshot.png)
 
 *Hakimi 侧边栏界面，支持 Markdown 渲染*
 
