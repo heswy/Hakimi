@@ -5,7 +5,7 @@
 ---
 
 <a name="english"></a>
-## 🇺🇸 English
+## English
 
 Native [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) integration for Obsidian. The plugin acts as an Obsidian host bridge for `kimi acp`: KimiCode remains the primary Agent runtime, while the plugin provides ACP transport, vault-aware context, and Obsidian MCP tools.
 
@@ -246,7 +246,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <a name="中文"></a>
-## 🇨🇳 中文
+## 中文
 
 [Hakimi](https://github.com/heswy/Hakimi) 是 Obsidian 的原生 [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) 集成插件。它作为 Obsidian 主机桥接 `kimi acp`：KimiCode 仍然是主要的 Agent 运行时，而插件提供 ACP 传输、Vault 感知上下文和 Obsidian MCP 工具。
 
