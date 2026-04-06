@@ -27,3 +27,10 @@ coverage/
 
 # Local test vault
 TestValt/
+
+# Internal documentation (not for open source)
+AGENTS.md
+CODEREVIEW_FIXES.md
+Codex_review_suggestion.md
+*.review.md
+*_review*.md
