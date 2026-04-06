@@ -278,6 +278,64 @@ export default class ObsidianKimiPlugin extends Plugin {
 
     this.settings = Object.assign({}, DEFAULT_SETTINGS, settingsSource);
     this.conversationsByVault = normalizeConversationStore(conversationsByVault);
+    
+    // 自动检测 Kimi CLI 路径（如果当前设置不可用）
+    await this.autoDetectKimiPath();
+  }
+
+  /**
+   * 自动检测 Kimi CLI 路径
+   * 在常见安装位置搜索 kimi 可执行文件
+   */
+  private async autoDetectKimiPath(): Promise<void> {
+    const currentPath = this.settings.kimiPath || 'kimi';
+    
+    // 如果已经设置了完整路径，跳过检测
+    if (currentPath.includes('/') || currentPath.includes('\\')) {
+      return;
+    }
+
+    const { access, constants } = require('fs/promises');
+    const { join } = require('path');
+    const { homedir } = require('os');
+    const { spawn } = require('child_process');
+    
+    const home = homedir();
+    const searchPaths = [
+      // uv 工具安装路径
+      join(home, '.local/bin/kimi'),
+      join(home, '.local/share/uv/tools/kimi-cli/bin/kimi'),
+      // Homebrew
+      '/opt/homebrew/bin/kimi',
+      '/usr/local/bin/kimi',
+      // Linux 标准路径
+      '/usr/bin/kimi',
+      '/bin/kimi',
+      // pipx
+      join(home, '.local/pipx/venvs/kimi-cli/bin/kimi'),
+    ];
+
+    for (const testPath of searchPaths) {
+      try {
+        await access(testPath, constants.X_OK);
+        // 验证是否可以执行（获取版本）
+        const version = await new Promise<string | null>((resolve) => {
+          const proc = spawn(testPath, ['--version'], { shell: false });
+          let stdout = '';
+          proc.stdout?.on('data', (data: Buffer) => { stdout += data.toString(); });
+          proc.on('close', (code: number) => { resolve(code === 0 ? stdout.trim() : null); });
+          proc.on('error', () => resolve(null));
+        });
+        
+        if (version) {
+          console.log(`[Hakimi] Auto-detected Kimi CLI at: ${testPath}`);
+          this.settings.kimiPath = testPath;
+          return;
+        }
+      } catch {
+        // 路径不存在或不可执行，继续下一个
+      }
+    }
   }
 
   async saveSettings() {
