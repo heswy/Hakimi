@@ -631,10 +631,17 @@ export class ACPClient extends EventEmitter {
       arguments: this.parseToolArguments(nextSnapshot.argumentsText),
     });
 
-    if (update.status === 'completed') {
+    // 处理工具完成状态 - 支持多种状态值
+    const status = update.status;
+    const isCompleted = status === 'completed' || status === 'finished' || status === 'success' || status === 'done';
+    const isFailed = status === 'failed' || status === 'error' || status === 'cancelled';
+
+    if (isCompleted || isFailed) {
+      this.log('info', `Tool ${toolCallId} ${isFailed ? 'failed' : 'completed'} with status: ${status}`);
       this.emit('tool_result', {
         id: toolCallId,
-        result: this.parseToolPayload(text),
+        result: isFailed ? { error: text || `Tool execution ${status}` } : this.parseToolPayload(text),
+        error: isFailed,
       });
       this.toolCallSnapshots.delete(toolCallId);
     }

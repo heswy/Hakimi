@@ -199,7 +199,11 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ plugin, app }) => {
   const isInterruptingRef = useRef(false);
   const isHydratingConversationRef = useRef(false);
   const lastPersistedSignatureRef = useRef('');
+  const toolTimeoutsRef = useRef<Map<string, number>>(new Map());
   const acpClient = plugin.acpClient;
+
+  // 工具执行超时时间（毫秒）
+  const TOOL_TIMEOUT = 60000; // 60秒
 
   const refreshConversationList = useCallback(() => {
     setConversations(plugin.getCurrentVaultConversations());
@@ -396,6 +400,47 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ plugin, app }) => {
     };
 
     const handleToolCall = (toolCall: any) => {
+      const toolId = toolCall.id;
+      
+      // 清除已存在的超时
+      const existingTimeout = toolTimeoutsRef.current.get(toolId);
+      if (existingTimeout) {
+        window.clearTimeout(existingTimeout);
+      }
+      
+      // 设置新的超时
+      const timeoutId = window.setTimeout(() => {
+        console.warn(`[ChatPanel] Tool ${toolId} timed out after ${TOOL_TIMEOUT}ms`);
+        setMessages((prev) => {
+          const toolMessageId = `tool-${toolId}`;
+          const existingIndex = prev.findIndex((message) => message.id === toolMessageId);
+          const finishedAt = Date.now();
+          
+          if (existingIndex === -1) {
+            return prev;
+          }
+          
+          const updated = [...prev];
+          const existingMessage = updated[existingIndex];
+          if (existingMessage.toolRun?.status === 'running') {
+            updated[existingIndex] = {
+              ...existingMessage,
+              timestamp: finishedAt,
+              toolRun: {
+                ...existingMessage.toolRun,
+                result: { error: 'Tool execution timed out' },
+                status: 'interrupted',
+                finishedAt
+              }
+            };
+          }
+          return updated;
+        });
+        toolTimeoutsRef.current.delete(toolId);
+      }, TOOL_TIMEOUT);
+      
+      toolTimeoutsRef.current.set(toolId, timeoutId);
+      
       setMessages((prev) => {
         const nextMessages = finalizeStreamingMessageInList(prev);
         const toolMessageId = `tool-${toolCall.id}`;
@@ -437,11 +482,22 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ plugin, app }) => {
     };
 
     const handleToolResult = (toolResult: any) => {
+      const toolId = toolResult.id;
+      
+      // 清除超时计时器
+      const timeoutId = toolTimeoutsRef.current.get(toolId);
+      if (timeoutId) {
+        window.clearTimeout(timeoutId);
+        toolTimeoutsRef.current.delete(toolId);
+      }
+      
       setMessages((prev) => {
         const nextMessages = finalizeStreamingMessageInList(prev);
-        const toolMessageId = `tool-${toolResult.id}`;
+        const toolMessageId = `tool-${toolId}`;
         const existingIndex = nextMessages.findIndex((message) => message.id === toolMessageId);
         const finishedAt = Date.now();
+        // 如果工具返回错误，标记为 interrupted，否则 completed
+        const finalStatus = toolResult.error ? 'interrupted' : 'completed';
 
         if (existingIndex === -1) {
           return [
@@ -452,11 +508,11 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ plugin, app }) => {
               content: '',
               timestamp: finishedAt,
               toolRun: {
-                id: toolResult.id || `tool-result-${finishedAt}`,
+                id: toolId || `tool-result-${finishedAt}`,
                 name: 'unknown',
                 arguments: {},
                 result: toolResult.result,
-                status: 'completed',
+                status: finalStatus,
                 startedAt: finishedAt,
                 finishedAt
               }
@@ -473,15 +529,15 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ plugin, app }) => {
             ? {
                 ...existingMessage.toolRun,
                 result: toolResult.result,
-                status: 'completed',
+                status: finalStatus,
                 finishedAt
               }
             : {
-                id: toolResult.id || `tool-result-${finishedAt}`,
+                id: toolId || `tool-result-${finishedAt}`,
                 name: 'unknown',
                 arguments: {},
                 result: toolResult.result,
-                status: 'completed',
+                status: finalStatus,
                 startedAt: finishedAt,
                 finishedAt
               }
@@ -596,6 +652,12 @@ export const ChatPanel: React.FC<ChatPanelProps> = ({ plugin, app }) => {
       app.workspace.off('kimi:new-chat', handleNewChat);
       // @ts-ignore
       app.workspace.off('kimi:history-updated', handleHistoryUpdated);
+      
+      // 清理所有工具超时计时器
+      toolTimeoutsRef.current.forEach((timeoutId) => {
+        window.clearTimeout(timeoutId);
+      });
+      toolTimeoutsRef.current.clear();
     };
   }, [acpClient, app.workspace, finalizeStreamingMessage, handleNewChatInternal, plugin, refreshConversationList, strings]);
 
