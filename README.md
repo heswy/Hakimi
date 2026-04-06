@@ -27,23 +27,9 @@ Native [Kimi CLI](https://github.com/MoonshotAI/kimi-cli) integration for Obsidi
 
 ## 📸 Screenshot
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  📁 File Explorer  │  📄 Main Note Area        │  🌙 Kimi Chat   │
-│                    │                            │   (Sidebar)    │
-│  Note A.md         │  # Project Ideas           │  ┌──────────┐  │
-│  Note B.md         │                            │  │ 👤 You   │  │
-│  ...               │  - Feature 1               │  │ 帮我想想   │  │
-│                    │  - Feature 2               │  │ 这个项目   │  │
-│                    │                            │  ├──────────┤  │
-│                    │                            │  │ 🤖 Kimi  │  │
-│                    │                            │  │ 这是几个   │  │
-│                    │                            │  │ 想法...   │  │
-│                    │                            │  │ 1. ...    │  │
-│                    │                            │  ├──────────┤  │
-│                    │                            │  │ [输入框]  │  │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Hakimi Screenshot](https://github.com/heswy/Hakimi/raw/main/docs/screenshot.png)
+
+*Hakimi sidebar interface with Markdown rendering support*
 
 ## 📋 Requirements
 
@@ -268,23 +254,9 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📸 界面预览
 
-```
-┌─────────────────────────────────────────────────────────────────┐
-│  📁 文件浏览器  │  📄 主笔记区域        │  🌙 Kimi 对话   │
-│                │                        │   (侧边栏)      │
-│  笔记 A.md     │  # 项目想法            │  ┌──────────┐  │
-│  笔记 B.md     │                        │  │ 👤 你    │  │
-│  ...           │  - 功能 1              │  │ 帮我想想   │  │
-│                │  - 功能 2              │  │ 这个项目   │  │
-│                │                        │  ├──────────┤  │
-│                │                        │  │ 🤖 Kimi  │  │
-│                │                        │  │ 这是几个   │  │
-│                │                        │  │ 想法...   │  │
-│                │                        │  │ 1. ...    │  │
-│                │                        │  ├──────────┤  │
-│                │                        │  │ [输入框]  │  │
-└─────────────────────────────────────────────────────────────────┘
-```
+![Hakimi 截图](https://github.com/heswy/Hakimi/raw/main/docs/screenshot.png)
+
+*Hakimi 侧边栏界面，支持 Markdown 渲染*
 
 ## 📋 系统要求
 
