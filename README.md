@@ -147,13 +147,15 @@ Or in the plugin settings, specify a custom MCP config file.
 
 ## ⌨️ Commands
 
+Search for these commands in the Command Palette (`Cmd/Ctrl+P`):
+
 | Command | Action |
 |---------|--------|
-| `Cmd/Ctrl+P` → "Open Kimi Chat" | Open sidebar |
-| `Cmd/Ctrl+P` → "Ask Kimi about selection" | Send selected text to Kimi |
-| `Cmd/Ctrl+P` → "Summarize current note" | Summarize active note |
-| `Cmd/Ctrl+P` → "Ask Kimi about current note" | Ask about active note |
-| `Cmd/Ctrl+P` → "New Kimi Chat" | Start fresh conversation |
+| **Hakimi: Open Kimi Chat** | Open sidebar |
+| **Hakimi: Ask Kimi about selection** | Send selected text to Kimi |
+| **Hakimi: Summarize current note with Kimi** | Summarize active note |
+| **Hakimi: Ask Kimi about current note** | Ask about active note |
+| **Hakimi: New Kimi Chat** | Start fresh conversation |
 | Right-click on selected text → "Ask Kimi" | Context menu action |
 
 ## ⚙️ Settings
@@ -386,13 +388,15 @@ kimi mcp add --transport http my-server https://example.com/mcp
 
 ## ⌨️ 命令
 
+在命令面板（`Cmd/Ctrl+P`）中搜索以下命令：
+
 | 命令 | 操作 |
 |---------|--------|
-| `Cmd/Ctrl+P` → "打开 Kimi 对话" | 打开侧边栏 |
-| `Cmd/Ctrl+P` → "让 Kimi 分析选中文本" | 将选中文本发送给 Kimi |
-| `Cmd/Ctrl+P` → "让 Kimi 总结当前笔记" | 总结当前笔记 |
-| `Cmd/Ctrl+P` → "让 Kimi 分析当前笔记" | 询问当前笔记 |
-| `Cmd/Ctrl+P` → "新建 Kimi 对话" | 开始新的对话 |
+| **Hakimi: 打开 Kimi 对话** | 打开侧边栏 |
+| **Hakimi: 让 Kimi 分析选中文本** | 将选中文本发送给 Kimi |
+| **Hakimi: 让 Kimi 总结当前笔记** | 总结当前笔记 |
+| **Hakimi: 让 Kimi 分析当前笔记** | 询问当前笔记 |
+| **Hakimi: 新建 Kimi 对话** | 开始新的对话 |
 | 右键选中文本 → "询问 Kimi" | 右键菜单操作 |
 
 ## ⚙️ 设置选项
